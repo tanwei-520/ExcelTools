@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp1
 {
-    partial class file
+    partial class ThuanFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(file));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThuanFrom));
             this.filenameonly = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,17 +64,17 @@ namespace WinFormsApp1
             // 
             // filenameonly
             // 
-            this.filenameonly.Location = new System.Drawing.Point(161, 123);
+            this.filenameonly.Location = new System.Drawing.Point(372, 118);
             this.filenameonly.Name = "filenameonly";
             this.filenameonly.ReadOnly = true;
-            this.filenameonly.Size = new System.Drawing.Size(315, 23);
+            this.filenameonly.Size = new System.Drawing.Size(470, 23);
             this.filenameonly.TabIndex = 15;
             // 
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Default;
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(201, 179);
+            this.button2.Location = new System.Drawing.Point(478, 174);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 30);
             this.button2.TabIndex = 14;
@@ -97,22 +97,22 @@ namespace WinFormsApp1
             // 
             // filelog
             // 
-            this.filelog.Location = new System.Drawing.Point(161, 82);
+            this.filelog.Location = new System.Drawing.Point(372, 77);
             this.filelog.Name = "filelog";
             this.filelog.ReadOnly = true;
-            this.filelog.Size = new System.Drawing.Size(315, 23);
+            this.filelog.Size = new System.Drawing.Size(470, 23);
             this.filelog.TabIndex = 12;
             // 
             // filename
             // 
-            this.filename.Location = new System.Drawing.Point(161, 33);
+            this.filename.Location = new System.Drawing.Point(372, 28);
             this.filename.Name = "filename";
-            this.filename.Size = new System.Drawing.Size(315, 23);
+            this.filename.Size = new System.Drawing.Size(470, 23);
             this.filename.TabIndex = 11;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(533, 29);
+            this.button1.Location = new System.Drawing.Point(899, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 30);
             this.button1.TabIndex = 10;
@@ -130,7 +130,7 @@ namespace WinFormsApp1
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(683, 266);
+            this.dataGridView1.Size = new System.Drawing.Size(1310, 291);
             this.dataGridView1.TabIndex = 17;
             // 
             // label2
@@ -169,13 +169,13 @@ namespace WinFormsApp1
             this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(15, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 339);
+            this.panel1.Size = new System.Drawing.Size(1307, 339);
             this.panel1.TabIndex = 20;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(428, 244);
+            this.label11.Location = new System.Drawing.Point(726, 236);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 17);
@@ -184,16 +184,16 @@ namespace WinFormsApp1
             // 
             // fujia
             // 
-            this.fujia.Location = new System.Drawing.Point(547, 218);
+            this.fujia.Location = new System.Drawing.Point(845, 210);
             this.fujia.Multiline = true;
             this.fujia.Name = "fujia";
-            this.fujia.Size = new System.Drawing.Size(127, 81);
+            this.fujia.Size = new System.Drawing.Size(204, 76);
             this.fujia.TabIndex = 33;
             // 
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.Location = new System.Drawing.Point(271, 272);
+            this.button3.Location = new System.Drawing.Point(474, 272);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 30);
             this.button3.TabIndex = 32;
@@ -204,7 +204,7 @@ namespace WinFormsApp1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(299, 244);
+            this.label9.Location = new System.Drawing.Point(587, 236);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 17);
             this.label9.TabIndex = 31;
@@ -212,7 +212,7 @@ namespace WinFormsApp1
             // 
             // sel
             // 
-            this.sel.Location = new System.Drawing.Point(361, 241);
+            this.sel.Location = new System.Drawing.Point(659, 233);
             this.sel.Name = "sel";
             this.sel.Size = new System.Drawing.Size(61, 23);
             this.sel.TabIndex = 30;
@@ -221,15 +221,15 @@ namespace WinFormsApp1
             // biiteml
             // 
             this.biiteml.FormattingEnabled = true;
-            this.biiteml.Location = new System.Drawing.Point(172, 241);
+            this.biiteml.Location = new System.Drawing.Point(410, 233);
             this.biiteml.Name = "biiteml";
-            this.biiteml.Size = new System.Drawing.Size(121, 25);
+            this.biiteml.Size = new System.Drawing.Size(156, 25);
             this.biiteml.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(172, 221);
+            this.label8.Location = new System.Drawing.Point(460, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 17);
             this.label8.TabIndex = 28;
@@ -238,7 +238,7 @@ namespace WinFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 221);
+            this.label7.Location = new System.Drawing.Point(257, 210);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 27;
@@ -247,15 +247,15 @@ namespace WinFormsApp1
             // a1itm
             // 
             this.a1itm.FormattingEnabled = true;
-            this.a1itm.Location = new System.Drawing.Point(6, 241);
+            this.a1itm.Location = new System.Drawing.Point(235, 233);
             this.a1itm.Name = "a1itm";
-            this.a1itm.Size = new System.Drawing.Size(121, 25);
+            this.a1itm.Size = new System.Drawing.Size(139, 25);
             this.a1itm.TabIndex = 26;
             // 
             // button4
             // 
             this.button4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button4.Location = new System.Drawing.Point(314, 179);
+            this.button4.Location = new System.Drawing.Point(622, 174);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(107, 30);
             this.button4.TabIndex = 25;
@@ -277,7 +277,7 @@ namespace WinFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(334, 153);
+            this.label5.Location = new System.Drawing.Point(700, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 22;
@@ -285,7 +285,7 @@ namespace WinFormsApp1
             // 
             // qishih
             // 
-            this.qishih.Location = new System.Drawing.Point(409, 149);
+            this.qishih.Location = new System.Drawing.Point(775, 144);
             this.qishih.Name = "qishih";
             this.qishih.Size = new System.Drawing.Size(67, 23);
             this.qishih.TabIndex = 21;
@@ -296,7 +296,7 @@ namespace WinFormsApp1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(271, 305);
+            this.label4.Location = new System.Drawing.Point(572, 298);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(5);
             this.label4.Size = new System.Drawing.Size(131, 30);
@@ -309,7 +309,7 @@ namespace WinFormsApp1
             this.Isname.AutoSize = true;
             this.Isname.Checked = true;
             this.Isname.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Isname.Location = new System.Drawing.Point(161, 152);
+            this.Isname.Location = new System.Drawing.Point(372, 144);
             this.Isname.Name = "Isname";
             this.Isname.Size = new System.Drawing.Size(99, 21);
             this.Isname.TabIndex = 19;
@@ -330,7 +330,7 @@ namespace WinFormsApp1
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(548, 369);
+            this.pictureBox1.Location = new System.Drawing.Point(1288, 369);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(34, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -342,17 +342,17 @@ namespace WinFormsApp1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(455, 386);
+            this.label10.Location = new System.Drawing.Point(1184, 386);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 16);
             this.label10.TabIndex = 23;
             this.label10.Text = "导出处理后的数据";
             // 
-            // file
+            // ThuanFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 693);
+            this.ClientSize = new System.Drawing.Size(1334, 711);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -362,8 +362,8 @@ namespace WinFormsApp1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "file";
-            this.Text = "Excel工具";
+            this.Name = "ThuanFrom";
+            this.Text = "替换列值";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.file_Load);
             this.SizeChanged += new System.EventHandler(this.File_SizeChanged);

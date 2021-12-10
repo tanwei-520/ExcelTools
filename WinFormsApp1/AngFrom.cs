@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class flie2 : Form
+    public partial class 更多工具 : Form
     {
-        public flie2()
+        public 更多工具()
         {
             InitializeComponent();
         }

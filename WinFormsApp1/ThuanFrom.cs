@@ -12,14 +12,14 @@ using NPOI.HSSF.UserModel;
 
 namespace WinFormsApp1
 {
-    public partial class file : Form
+    public partial class ThuanFrom : Form
     {
         private static DataTable a1;
         private static DataTable a2;
         private static DataTable a3;
         private static string []a1name;
         private static string[] a2name;
-        public file()
+        public ThuanFrom()
         {
             InitializeComponent();
         }

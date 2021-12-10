@@ -24,7 +24,7 @@ namespace WinFormsApp1
             {
                 ActiveMdiChild.Close();
             }
-            file f = new file
+            ThuanFrom f = new ThuanFrom
             {
                 MdiParent = this
             };
@@ -37,7 +37,20 @@ namespace WinFormsApp1
             {
                 ActiveMdiChild.Close();
             }
-            flie2 f = new flie2
+            DuiBiFrom f = new DuiBiFrom
+            {
+                MdiParent = this
+            };
+            f.Show();
+        }
+
+        private void 数据对比ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            更多工具 f = new 更多工具
             {
                 MdiParent = this
             };

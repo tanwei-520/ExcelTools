@@ -220,6 +220,7 @@ namespace WinFormsApp1
             // 
             // biiteml
             // 
+            this.biiteml.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.biiteml.FormattingEnabled = true;
             this.biiteml.Location = new System.Drawing.Point(410, 233);
             this.biiteml.Name = "biiteml";
@@ -246,6 +247,7 @@ namespace WinFormsApp1
             // 
             // a1itm
             // 
+            this.a1itm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.a1itm.FormattingEnabled = true;
             this.a1itm.Location = new System.Drawing.Point(235, 233);
             this.a1itm.Name = "a1itm";

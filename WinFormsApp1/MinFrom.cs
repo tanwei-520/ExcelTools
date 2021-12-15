@@ -56,5 +56,10 @@ namespace WinFormsApp1
             };
             f.Show();
         }
+
+        private void del1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

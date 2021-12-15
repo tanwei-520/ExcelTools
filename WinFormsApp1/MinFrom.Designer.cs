@@ -86,12 +86,15 @@ namespace WinFormsApp1
             this.ClientSize = new System.Drawing.Size(1334, 747);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "del1";
             this.RightToLeftLayout = true;
             this.Text = "Excel工具";
+            this.Load += new System.EventHandler(this.del1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

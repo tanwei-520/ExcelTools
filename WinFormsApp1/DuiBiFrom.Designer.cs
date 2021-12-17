@@ -64,11 +64,13 @@ namespace WinFormsApp1
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -141,6 +143,7 @@ namespace WinFormsApp1
             this.RdFu.Text = "读取父数据源";
             this.RdFu.UseVisualStyleBackColor = true;
             this.RdFu.Click += new System.EventHandler(this.RdFu_Click);
+            this.RdFu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RdFu_MouseDown);
             // 
             // Rdch
             // 
@@ -153,6 +156,7 @@ namespace WinFormsApp1
             this.Rdch.Text = "读取子数据源";
             this.Rdch.UseVisualStyleBackColor = true;
             this.Rdch.Click += new System.EventHandler(this.Rdch_Click);
+            this.Rdch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Rdch_MouseDown);
             // 
             // label3
             // 
@@ -393,6 +397,7 @@ namespace WinFormsApp1
             this.pictureBox3.TabIndex = 31;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseDown);
             // 
             // comboBox3
             // 
@@ -428,11 +433,24 @@ namespace WinFormsApp1
             this.label13.TabIndex = 34;
             this.label13.Text = "导出";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(619, 252);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(52, 47);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 35;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
+            // 
             // DuiBiFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1334, 711);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.comboBox3);
@@ -478,6 +496,7 @@ namespace WinFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,5 +538,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

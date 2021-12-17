@@ -4,6 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <PackageId>ExcelTools</PackageId>
+    <Authors>ExcelTools-TW</Authors>
+    <Product>ExcelTools</Product>
+    <AssemblyName>ExcelTools</AssemblyName>
+    <RootNamespace>WinFormsApp1</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

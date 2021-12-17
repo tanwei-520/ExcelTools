@@ -9,6 +9,7 @@ using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
+using System.Threading;
 
 namespace WinFormsApp1
 {
@@ -103,6 +104,7 @@ namespace WinFormsApp1
                     int i=Top-2;
                     row = sheet.GetRow(i);
                     string[] name = new string[row.LastCellNum+1];
+                    name[row.LastCellNum] = sheet.LastRowNum.ToString();
                     for (int t = row.FirstCellNum; t < row.LastCellNum; t++)
                     {
                         if (row.GetCell(t) != null)
@@ -137,7 +139,6 @@ namespace WinFormsApp1
                     else if (Table == "C")
                         a2 = dataTable;
                     fileStream.Close();
-                    name[row.LastCellNum] = dataTable.Rows.Count.ToString();
                     return name;
                 }
                 else
@@ -169,6 +170,7 @@ namespace WinFormsApp1
                         comboBox1.Items.Add(Cplublic.A1[t]);
                     //comboBox1.SelectedIndex = 0;//设置默认选项
                     Tiao1.Checked = true;
+                    pictureBox5.Visible = false;
                 }
                 else
                     MessageBox.Show("Excel读取出错，请联系管理员！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -191,6 +193,7 @@ namespace WinFormsApp1
                         comboBox2.Items.Add(Cplublic.B1[t]);
                     //comboBox2.SelectedIndex = 0;//设置默认选项
                     Tiao2.Checked = true;
+                    pictureBox5.Visible = false;
                 }
                 else
                     MessageBox.Show("Excel读取出错，请联系管理员！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -335,6 +338,7 @@ namespace WinFormsApp1
                     dataGridView1.DataSource = a3;
                     Lable.Text = a3.TableName + "表中不匹配数据共：" + a3.Rows.Count;
                 }
+                pictureBox5.Visible = false;
             }
         }
 
@@ -345,6 +349,7 @@ namespace WinFormsApp1
                 if (a3 == null)
                 {
                     MessageBox.Show("结果集为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    pictureBox5.Visible = false;
                     return;
                 }
                 if (a3.Rows.Count > 0)
@@ -412,6 +417,21 @@ namespace WinFormsApp1
             {
                      MessageBox.Show("导出错误！请联系管理员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void RdFu_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5.Visible = true;
+        }
+
+        private void Rdch_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5.Visible = true;
+        }
+
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5.Visible = true;
         }
     }
 }

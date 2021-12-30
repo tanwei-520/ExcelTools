@@ -12,23 +12,37 @@ using NPOI.HSSF.UserModel;
 
 namespace WinFormsApp1
 {
-    public partial class DuiBiFrom : Form
+    public partial class TianC : Form
     {
         private static DataTable a1;
         private static DataTable a2;
         private static DataTable a3;
-        public DuiBiFrom()
+        public TianC()
         {
             InitializeComponent();
         }
 
-        private void DuiBiFrom_Load(object sender, EventArgs e)
+        private void TianC_Load(object sender, EventArgs e)
         {
             comboBox3.SelectedIndex = 0;
             Cplublic.A1 = Cplublic.B1 = Cplublic.TA1 = Cplublic.TB1 = null;
         }
+        private void Clear()//重置
+        {
+            textBox1.Text = "2";
+            comboBox2.Items.Clear();
+            comboBox1.Items.Clear();
+            dataGridView1.DataSource = null;
+            Ctext.Text = "";
+            Ftext.Text = "";
+            Lable.Text = "------";
+            Cplublic.B1 = Cplublic.A1 = null;
+            Tiao1.Checked = Tiao2.Checked = Tiao3.Checked = Tiao4.Checked = false;
+            checkBox1.Checked = false;
+            a1 = a2 = null;
+        }
 
-        private void button1_Click(object sender, EventArgs e)//选择父数据源文件
+        private void button1_Click(object sender, EventArgs e)//选择数据源
         {
             OpenFileDialog fileDialog = new OpenFileDialog
             {
@@ -39,11 +53,11 @@ namespace WinFormsApp1
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 Ftext.Text = fileDialog.FileName; //获取文件路径（带文件名）
-               // filenameonly.Text = info.Name;  //获取文件名
+                 // filenameonly.Text = info.Name;  //获取文件名
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)//选择子数据源文件
+        private void button2_Click(object sender, EventArgs e)//选择待处理文件
         {
             OpenFileDialog fileDialog = new OpenFileDialog
             {
@@ -57,26 +71,7 @@ namespace WinFormsApp1
                 // filenameonly.Text = info.Name;  //获取文件名
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)//打开条件设置
-        {
-            if (Cplublic.A1!=null&&Cplublic.B1!=null)
-            {
-                if (ActiveMdiChild != null)
-                {
-                    ActiveMdiChild.Close();
-                }
-                DuiBTJ f = new DuiBTJ();
-                f.ShowDialog();
-                if (Cplublic.Lable == "200")
-                    Tiao4.Checked = true;
-                else
-                    Tiao4.Checked = false;
-            }
-            else
-                MessageBox.Show("数据源未正确设置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private string[] ReadExcel(string filename,string filepath,int Top,string Table)//读取Excel文件
+        private string[] ReadExcel(string filename, string filepath, int Top, string Table)//读取Excel文件
         {
             try
             {
@@ -101,9 +96,9 @@ namespace WinFormsApp1
                     dataTable.TableName = tablename;
                     if (Top < 2)
                         Top = 2;
-                    int i=Top-2;
+                    int i = Top - 2;
                     row = sheet.GetRow(i);
-                    string[] name = new string[row.LastCellNum+1];
+                    string[] name = new string[row.LastCellNum + 1];
                     name[row.LastCellNum] = sheet.LastRowNum.ToString();
                     for (int t = row.FirstCellNum; t < row.LastCellNum; t++)
                     {
@@ -155,14 +150,19 @@ namespace WinFormsApp1
             }
         }
 
-        private void RdFu_Click(object sender, EventArgs e)//读取父数据源
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void RdFu_Click(object sender, EventArgs e)//读取数据源
         {
             if (Ftext.Text == "" || Ftext.Text == null)
                 MessageBox.Show("请选择Excel文件！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 DirectoryInfo info = new DirectoryInfo(Ftext.Text);
-                Cplublic.A1 = ReadExcel(info.Name, Ftext.Text, int.Parse(textBox1.Text),"F");
+                Cplublic.A1 = ReadExcel(info.Name, Ftext.Text, int.Parse(textBox1.Text), "F");
                 if (Cplublic.A1 != null)
                 {
                     Lable.Text = info.Name + "共：" + Cplublic.A1[^1] + "条数据";
@@ -178,14 +178,14 @@ namespace WinFormsApp1
             }
         }
 
-        private void Rdch_Click(object sender, EventArgs e)//读取子数据源
+        private void Rdch_Click(object sender, EventArgs e)//读取待处理文件
         {
             if (Ctext.Text == "" || Ctext.Text == null)
                 MessageBox.Show("请选择Excel文件！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 DirectoryInfo info = new DirectoryInfo(Ctext.Text);
-                Cplublic.B1 = ReadExcel(info.Name, Ctext.Text, int.Parse(textBox1.Text),"C");
+                Cplublic.B1 = ReadExcel(info.Name, Ctext.Text, int.Parse(textBox1.Text), "C");
                 if (Cplublic.B1 != null)
                 {
                     Lable.Text = info.Name + "共：" + Cplublic.B1[^1] + "条数据";
@@ -200,52 +200,40 @@ namespace WinFormsApp1
                     MessageBox.Show("Excel读取出错，请联系管理员！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void Clear()//重置
-        {
-            textBox1.Text = "2";
-            comboBox2.Items.Clear();
-            comboBox1.Items.Clear();
-            dataGridView1.DataSource = null;
-            Ctext.Text = "";
-            Ftext.Text = "";
-            Lable.Text = "------";
-            Cplublic.B1 = Cplublic.A1 = null;
-            Tiao1.Checked = Tiao2.Checked = Tiao3.Checked = Tiao4.Checked = false;
-            checkBox1.Checked = false;
-            a1 = a2 = null;
-        }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Clear();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(comboBox1.Text!=""&&comboBox2.Text!="")
-               Tiao3.Checked = true;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.Text != "" && comboBox2.Text != "")
-                Tiao3.Checked = true;
+            if (Cplublic.A1 != null && Cplublic.B1 != null)
+            {
+                if (ActiveMdiChild != null)
+                {
+                    ActiveMdiChild.Close();
+                }
+                TianCTJ f = new TianCTJ();
+                f.ShowDialog();
+                if (Cplublic.Lable == "200")
+                    Tiao4.Checked = true;
+                else
+                    Tiao4.Checked = false;
+            }
+            else
+                MessageBox.Show("数据源未正确设置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.Checked==true)
-               Tiao4.Checked = true;
+            if (checkBox1.Checked == true)
+                Tiao4.Checked = true;
             else
             {
-                if(Cplublic.TA1==null||Cplublic.TB1==null)
-                   Tiao4.Checked = false;
+                if (Cplublic.TA1 == null || Cplublic.TB1 == null)
+                    Tiao4.Checked = false;
             }
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)//开始对比
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if(Tiao1.Checked ==false|| Tiao2.Checked == false || Tiao3.Checked == false || Tiao4.Checked == false)
+            if (Tiao1.Checked == false || Tiao2.Checked == false || Tiao3.Checked == false || Tiao4.Checked == false)
             {
                 MessageBox.Show("对比准备未完成，请检查设置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pictureBox5.Visible = false;
@@ -257,38 +245,31 @@ namespace WinFormsApp1
                 if (checkBox1.Checked == false)
                 {
                     int index2 = Array.IndexOf(Cplublic.B1, comboBox2.Text);
-                    DataTable dataTable = new DataTable();
+                    DataTable dataTable;
                     dataTable = a2.Clone();
                     DataRow[] dr;
                     for (int i = 0; i < a2.Rows.Count; i++)
                     {
-                        if (a2.Rows[i][index2].ToString() != "")
+                        if (a2.Rows[i][index2].ToString() != "")//条件列值是否为空
                         {
                             if (comboBox3.Text != "like")
                                 dr = a1.Select(comboBox1.Text + " " + comboBox3.Text + " '" + a2.Rows[i][index2].ToString() + "'");
                             else
                                 dr = a1.Select(comboBox1.Text + " " + comboBox3.Text + " '%" + a2.Rows[i][index2].ToString() + "%' ");
-                            if (dr.Length > 0)//查询结果是否为空
+                            if (dr.Length>0)//查询结果是否为空
                             {
                                 for (int t = 0; t < dr.Length; t++)
                                 {
                                     DataRow dc = a2.Rows[i];
                                     //dc[biiteml.Text] = dr[t][a1itm.Text].ToString();
-                                    for (int y = 0; y < Cplublic.TA1.Length;)
+                                    for (int y = 0; y < Cplublic.TA1.Length; y++)
                                     {
-                                        if (dr[t][Array.IndexOf(Cplublic.A1, Cplublic.TA1[y])].ToString() != a2.Rows[i][Array.IndexOf(Cplublic.B1, Cplublic.TB1[y])].ToString())
-                                        {
-                                            dataTable.Rows.Add(dc.ItemArray);
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            ++y;
-                                        }
+                                        dc[Cplublic.TB1[y]] = dr[t][Cplublic.TA1[y]].ToString();
                                     }
+                                    dataTable.Rows.Add(dc.ItemArray);
                                 }
                             }
-                            else
+                            else//为空填充当前行
                             {
                                 DataRow dc = a2.Rows[i];
                                 dataTable.Rows.Add(dc.ItemArray);
@@ -302,12 +283,12 @@ namespace WinFormsApp1
                     }
                     a3 = dataTable;
                     dataGridView1.DataSource = a3;
-                    Lable.Text = a3.TableName + "表中不匹配数据共：" + a3.Rows.Count;
+                    Lable.Text = a3.TableName + "填充数据共：" + a3.Rows.Count;
                 }
                 else
                 {
                     int index2 = Array.IndexOf(Cplublic.B1, comboBox2.Text);
-                    DataTable dataTable = new DataTable();
+                    DataTable dataTable;
                     dataTable = a2.Clone();
                     DataRow[] dr;
                     for (int i = 0; i < a2.Rows.Count; i++)
@@ -324,21 +305,12 @@ namespace WinFormsApp1
                                 {
                                     DataRow dc = a2.Rows[i];
                                     //dc[biiteml.Text] = dr[t][a1itm.Text].ToString();
-                                    for (int y = 0; y < Cplublic.B1.Length - 1;)
+                                    for (int y = 0; y < Cplublic.B1.Length - 1; y++)
                                     {
                                         if (Array.IndexOf(Cplublic.A1, Cplublic.B1[y]) >= 0)
-                                        {
-                                            if (dr[t][Array.IndexOf(Cplublic.A1, Cplublic.B1[y])].ToString() != a2.Rows[i][y].ToString())
-                                            {
-                                                dataTable.Rows.Add(dc.ItemArray);
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                ++y;
-                                            }
-                                        }
+                                            dc[Cplublic.B1[y]] = dr[t][Array.IndexOf(Cplublic.A1, Cplublic.B1[y])].ToString();
                                     }
+                                    dataTable.Rows.Add(dc.ItemArray);
                                 }
                             }
                             else
@@ -355,13 +327,25 @@ namespace WinFormsApp1
                     }
                     a3 = dataTable;
                     dataGridView1.DataSource = a3;
-                    Lable.Text = a3.TableName + "中不匹配数据共：" + a3.Rows.Count;
+                    Lable.Text = a3.TableName + "填充数据共：" + a3.Rows.Count;
                 }
                 pictureBox5.Visible = false;
             }
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)//导出数据
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text != "" && comboBox2.Text != "")
+                Tiao3.Checked = true;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text != "" && comboBox2.Text != "")
+                Tiao3.Checked = true;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)//导出
         {
             try
             {
@@ -406,7 +390,7 @@ namespace WinFormsApp1
                     {
                         //设置文件类型 
                         Filter = "Excel表格（*.xlsx）|*.xlsx",
-                        FileName = a2.TableName + "不匹配数据.xlsx",
+                        FileName = a2.TableName + "填充.xlsx",
                         //设置默认文件类型显示顺序 
                         FilterIndex = 1,
                         //  InitialDirectory = @"C:\Users\Administrator\Desktop",//是否设置默认打开路径
@@ -425,6 +409,7 @@ namespace WinFormsApp1
                         fss.Close();
                         workbook.Close();
                         MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        pictureBox5.Visible = false;
                     }
                     dialog.Dispose();
                 }
@@ -435,8 +420,18 @@ namespace WinFormsApp1
             }
             catch
             {
-                     MessageBox.Show("导出错误！请联系管理员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("导出错误！请联系管理员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5.Visible = true;
+        }
+
+        private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5.Visible = true;
         }
 
         private void RdFu_MouseDown(object sender, MouseEventArgs e)
@@ -445,11 +440,6 @@ namespace WinFormsApp1
         }
 
         private void Rdch_MouseDown(object sender, MouseEventArgs e)
-        {
-            pictureBox5.Visible = true;
-        }
-
-        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
             pictureBox5.Visible = true;
         }

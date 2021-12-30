@@ -50,7 +50,7 @@ namespace WinFormsApp1
             {
                 ActiveMdiChild.Close();
             }
-            更多工具 f = new 更多工具
+            TianC f = new TianC
             {
                 MdiParent = this
             };
@@ -59,7 +59,20 @@ namespace WinFormsApp1
 
         private void del1_Load(object sender, EventArgs e)
         {
+            label1.Text = "程序启动路径:" + Application.StartupPath;
+        }
 
+        private void 更多工具ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            更多工具 f = new 更多工具
+            {
+                MdiParent = this
+            };
+            f.Show();
         }
     }
 }

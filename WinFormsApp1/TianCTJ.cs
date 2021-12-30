@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class DuiBTJ : Form
+    public partial class TianCTJ : Form
     {
         private int y1 = 52;
         private int y2 = 62;
         private int ID = 2;
-        public DuiBTJ()
+        public TianCTJ()
         {
             InitializeComponent();
             for (int i = 0; i < Cplublic.A1.Length - 1; i++)
@@ -24,14 +24,14 @@ namespace WinFormsApp1
             C1.SelectedIndex = 0;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)//添加对比
+        private void pictureBox1_Click(object sender, EventArgs e)//新增条件
         {
             int a;
             if (Cplublic.A1.Length - 1 > Cplublic.B1.Length - 1)
                 a = Cplublic.A1.Length - 1;
             else
                 a = Cplublic.B1.Length - 1;
-            if (ID < a - 1)
+            if (ID<a-1)
             {
                 int t = panel1.VerticalScroll.Value;
                 Label Biao = new Label();
@@ -78,14 +78,14 @@ namespace WinFormsApp1
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)//保存条件
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             Cplublic.TA1 = new string[ID - 1];
             Cplublic.TB1 = new string[ID - 1];
-            int t = 0,i=0;
+            int t = 0, i = 0;
             foreach (Control control in this.panel1.Controls)
             {
-                if(control is ComboBox)
+                if (control is ComboBox)
                 {
                     if (control.Name.IndexOf("F") >= 0)
                     {
@@ -103,7 +103,7 @@ namespace WinFormsApp1
             }
             if (Cplublic.TA1 != null && Cplublic.TB1 != null)
             {
-                DialogResult dr=MessageBox.Show("条件设置成功！是否关闭设置窗口？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dr = MessageBox.Show("条件设置成功！是否关闭设置窗口？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dr == DialogResult.Yes)
                     this.Close();
             }
@@ -113,7 +113,8 @@ namespace WinFormsApp1
                 Cplublic.Lable = "403";
             }
         }
-        private void DuiBTJ_FormClosing(object sender, FormClosingEventArgs e)//点击关闭按钮校验
+
+        private void TianCTJ_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Cplublic.TA1 != null && Cplublic.TB1 != null)
             {

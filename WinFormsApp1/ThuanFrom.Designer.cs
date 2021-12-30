@@ -39,6 +39,11 @@ namespace WinFormsApp1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.fujia = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -146,6 +151,11 @@ namespace WinFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.fujia);
             this.panel1.Controls.Add(this.button3);
@@ -172,6 +182,51 @@ namespace WinFormsApp1
             this.panel1.Size = new System.Drawing.Size(1307, 339);
             this.panel1.TabIndex = 20;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(899, 92);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(308, 17);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "添加先决条件，若条件为空则以处理自动和源字段为条件";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1140, 118);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 17);
+            this.label13.TabIndex = 38;
+            this.label13.Text = "待";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(944, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 17);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "源";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1084, 140);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(139, 25);
+            this.comboBox2.TabIndex = 36;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(899, 142);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(139, 25);
+            this.comboBox1.TabIndex = 35;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -193,7 +248,7 @@ namespace WinFormsApp1
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.Location = new System.Drawing.Point(474, 272);
+            this.button3.Location = new System.Drawing.Point(572, 265);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 30);
             this.button3.TabIndex = 32;
@@ -308,6 +363,7 @@ namespace WinFormsApp1
             // 
             // Isname
             // 
+            this.Isname.AutoCheck = false;
             this.Isname.AutoSize = true;
             this.Isname.Checked = true;
             this.Isname.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -407,5 +463,10 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox fujia;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label14;
     }
 }

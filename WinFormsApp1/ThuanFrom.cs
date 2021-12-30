@@ -125,8 +125,11 @@ namespace WinFormsApp1
                     {
                         a1name = null;
                         a1itm.Items.Clear();
+                        comboBox1.Items.Clear();
                         for (int y = 0; y < name.Length; y++)
                             a1itm.Items.Add(name[y]);
+                        for (int y = 0; y < name.Length; y++)
+                            comboBox1.Items.Add(name[y]);
                         a1 = dataTable;
                         a1name = name;
                     }
@@ -134,8 +137,11 @@ namespace WinFormsApp1
                     {
                         a2name = null;
                         biiteml.Items.Clear();
+                        comboBox2.Items.Clear();
                         for (int y = 0; y < name.Length; y++)
                             biiteml.Items.Add(name[y]);
+                        for (int y = 0; y < name.Length; y++)
+                            comboBox2.Items.Add(name[y]);
                         a2 = dataTable;
                         a2name = name;
                     }
@@ -161,7 +167,7 @@ namespace WinFormsApp1
             {
                 Multiselect = false,
                 Title = "请选择文件", //选择器提示文字
-                Filter = "所有文件(*.*)|*.*"
+                Filter = "Excel文件|*.xls;*.xlsx"
             };
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -208,24 +214,56 @@ namespace WinFormsApp1
             }
             int index1 = Array.IndexOf(a1name, a1itm.Text);
             int index2 = Array.IndexOf(a2name, biiteml.Text);
+            int index3 = Array.IndexOf(a2name, comboBox2.Text);
             DataTable dataTable = new DataTable();
             dataTable = a2.Clone();
-            for (int i=0;i<a2.Rows.Count;i++) 
+            DataRow[] dr;
+            if (comboBox1.Text != "" && comboBox2.Text != "")
             {
-                if (a2.Rows[i][index2].ToString() != "")
+                for (int i = 0; i < a2.Rows.Count; i++)
                 {
-                    DataRow[] dr = a1.Select(a1itm.Text + " "+ sel.Text + " '%" + a2.Rows[i][index2].ToString() + "%' "+ fujia.Text);
-                    for (int t = 0; t < dr.Length; t++)
+                    if (a2.Rows[i][index3].ToString() != "")
+                    {
+                        if (sel.Text == "like")
+                            dr = a1.Select(comboBox1.Text + " " + sel.Text + " '%" + a2.Rows[i][index3].ToString() + "%' " + fujia.Text);
+                        else
+                            dr = a1.Select(comboBox1.Text + " " + sel.Text + " '" + a2.Rows[i][index3].ToString() + "' " + fujia.Text);
+                        for (int t = 0; t < dr.Length; t++)
+                        {
+                            DataRow dc = a2.Rows[i];
+                            dc[biiteml.Text] = dr[t][a1itm.Text].ToString();
+                            dataTable.Rows.Add(dc.ItemArray);
+                        }
+                    }
+                    else //如果所选条件为空则改行直接填充
                     {
                         DataRow dc = a2.Rows[i];
-                        dc[biiteml.Text] = dr[t][a1itm.Text].ToString();
                         dataTable.Rows.Add(dc.ItemArray);
                     }
                 }
-                else //如果所选条件为空则改行直接填充
+            }
+            else
+            {
+                for (int i = 0; i < a2.Rows.Count; i++)
                 {
-                    DataRow dc = a2.Rows[i];
-                    dataTable.Rows.Add(dc.ItemArray);
+                    if (a2.Rows[i][index2].ToString() != "")
+                    {
+                        if (sel.Text == "like")
+                            dr = a1.Select(a1itm.Text + " " + sel.Text + " '%" + a2.Rows[i][index2].ToString() + "%' " + fujia.Text);
+                        else
+                            dr = a1.Select(a1itm.Text + " " + sel.Text + " '" + a2.Rows[i][index2].ToString() + "' " + fujia.Text);
+                        for (int t = 0; t < dr.Length; t++)
+                        {
+                            DataRow dc = a2.Rows[i];
+                            dc[biiteml.Text] = dr[t][a1itm.Text].ToString();
+                            dataTable.Rows.Add(dc.ItemArray);
+                        }
+                    }
+                    else //如果所选条件为空则改行直接填充
+                    {
+                        DataRow dc = a2.Rows[i];
+                        dataTable.Rows.Add(dc.ItemArray);
+                    }
                 }
             }
             label3.Text = "当前共：" + (int.Parse(dataTable.Rows.Count.ToString())).ToString() + "条数据";
@@ -256,6 +294,7 @@ namespace WinFormsApp1
                     {
                         sheetcell[i] = (XSSFCell)sheetrow.CreateCell(i);
                         sheetcell[i].SetCellValue(a2name[i]);
+                        sheet.SetColumnWidth(i, 18 * 256);
                     }
                     for (int i = 0; i < a3.Rows.Count; i++)
                     {

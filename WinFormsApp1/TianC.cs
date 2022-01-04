@@ -93,7 +93,7 @@ namespace WinFormsApp1
                     ISheet sheet = workbook.GetSheetAt(0);
                     IRow row;
                     DataTable dataTable = new DataTable();
-                    dataTable.TableName = tablename;
+                    dataTable.TableName =tablename.Substring(tablename.LastIndexOf("\\")+1);
                     if (Top < 2)
                         Top = 2;
                     int i = Top - 2;

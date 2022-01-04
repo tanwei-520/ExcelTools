@@ -487,6 +487,7 @@ namespace WinFormsApp1
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DuiBiFrom";
             this.Text = "数据对比";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

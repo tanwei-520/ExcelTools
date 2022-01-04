@@ -35,6 +35,7 @@ namespace WinFormsApp1
             this.数据对比ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.更多工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更多工具ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.更多工具ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,8 @@ namespace WinFormsApp1
             this.替换列值ToolStripMenuItem,
             this.数据对比ToolStripMenuItem1,
             this.更多工具ToolStripMenuItem,
-            this.更多工具ToolStripMenuItem1});
+            this.更多工具ToolStripMenuItem1,
+            this.更多工具ToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
@@ -61,7 +63,7 @@ namespace WinFormsApp1
             this.替换列值ToolStripMenuItem.Name = "替换列值ToolStripMenuItem";
             this.替换列值ToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.替换列值ToolStripMenuItem.Text = "替换列值";
-            this.替换列值ToolStripMenuItem.Click += new System.EventHandler(this.选择文件ToolStripMenuItem_Click);
+            this.替换列值ToolStripMenuItem.Click += new System.EventHandler(this.替换列值ToolStripMenuItem_Click);
             // 
             // 数据对比ToolStripMenuItem1
             // 
@@ -69,7 +71,7 @@ namespace WinFormsApp1
             this.数据对比ToolStripMenuItem1.Name = "数据对比ToolStripMenuItem1";
             this.数据对比ToolStripMenuItem1.Size = new System.Drawing.Size(93, 24);
             this.数据对比ToolStripMenuItem1.Text = "数据对比";
-            this.数据对比ToolStripMenuItem1.Click += new System.EventHandler(this.选择文件夹ToolStripMenuItem1_Click);
+            this.数据对比ToolStripMenuItem1.Click += new System.EventHandler(this.数据对比ToolStripMenuItem1_Click);
             // 
             // 更多工具ToolStripMenuItem
             // 
@@ -84,13 +86,21 @@ namespace WinFormsApp1
             this.更多工具ToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("更多工具ToolStripMenuItem1.Image")));
             this.更多工具ToolStripMenuItem1.Name = "更多工具ToolStripMenuItem1";
             this.更多工具ToolStripMenuItem1.Size = new System.Drawing.Size(93, 24);
-            this.更多工具ToolStripMenuItem1.Text = "更多工具";
-            this.更多工具ToolStripMenuItem1.Click += new System.EventHandler(this.更多工具ToolStripMenuItem1_Click);
+            this.更多工具ToolStripMenuItem1.Text = "数据拼接";
+            this.更多工具ToolStripMenuItem1.Click += new System.EventHandler(this.数据生成ToolStripMenuItem1_Click);
+            // 
+            // 更多工具ToolStripMenuItem2
+            // 
+            this.更多工具ToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("更多工具ToolStripMenuItem2.Image")));
+            this.更多工具ToolStripMenuItem2.Name = "更多工具ToolStripMenuItem2";
+            this.更多工具ToolStripMenuItem2.Size = new System.Drawing.Size(93, 24);
+            this.更多工具ToolStripMenuItem2.Text = "更多工具";
+            this.更多工具ToolStripMenuItem2.Click += new System.EventHandler(this.更多工具ToolStripMenuItem2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(393, 9);
+            this.label1.Location = new System.Drawing.Point(557, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 14;
@@ -130,6 +140,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.ToolStripMenuItem 更多工具ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem 更多工具ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 更多工具ToolStripMenuItem2;
     }
 }
 

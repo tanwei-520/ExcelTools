@@ -11,5 +11,6 @@ namespace WinFormsApp1
         public static string[] TA1;
         public static string[] TB1;
         public static string Lable="200";
+        public static string AppPath;
     }
 }

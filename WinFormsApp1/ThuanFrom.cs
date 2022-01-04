@@ -78,23 +78,30 @@ namespace WinFormsApp1
                     }
                     row = sheet.GetRow(i);
                     string[] name = new string[row.LastCellNum];
-                    for (int t = row.FirstCellNum; t < row.LastCellNum; t++)
+                    try
                     {
-                        if (row.GetCell(t) != null)
+                        for (int t = row.FirstCellNum; t < row.LastCellNum; t++)
                         {
-                            if (Isname.Checked)//如果包含列名则取出列名
+                            if (row.GetCell(t) != null)
                             {
-                                if (row.GetCell(t) != null)
-                                    name[t] = row.GetCell(t).ToString();
-                                else
-                                    name[t] = t.ToString();
+                                if (Isname.Checked)//如果包含列名则取出列名
+                                {
+                                    if (row.GetCell(t) != null)
+                                        name[t] = row.GetCell(t).ToString();
+                                    else
+                                        name[t] = t.ToString();
+                                }
+                                dataTable.Columns.Add("column" + t);//建列
                             }
-                            dataTable.Columns.Add("column" + t);//建列
+                            else
+                            {
+                                name[t] = "";
+                            }
                         }
-                        else
-                        {
-                            name[t] = "";
-                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("出现此报错，可能是因为列名为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     for (i = i + 1; i < sheet.LastRowNum+1; i++)
                     {

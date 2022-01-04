@@ -62,6 +62,7 @@ namespace WinFormsApp1
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -151,6 +152,7 @@ namespace WinFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
@@ -406,6 +408,17 @@ namespace WinFormsApp1
             this.label10.TabIndex = 23;
             this.label10.Text = "导出处理后的数据";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft YaHei UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label15.Location = new System.Drawing.Point(6, 298);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(160, 14);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "列名：数据起始行减一即为列名获取源";
+            // 
             // ThuanFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -468,5 +481,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

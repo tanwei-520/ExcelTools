@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 using NPOI.XSSF.UserModel;
 
 namespace WinFormsApp1
@@ -45,13 +46,15 @@ namespace WinFormsApp1
             int i = 0;
             this.panel1.Controls.Clear();
             DirectoryInfo Files = new DirectoryInfo(Path);
-            foreach (FileInfo Filename in Files.GetFiles())
+            FileInfo[] files = Files.GetFiles();
+            var filtered = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden));//去除隐藏文件
+            foreach (FileInfo Filename in filtered)
             {
                 int t = panel1.VerticalScroll.Value;
                 CheckBox checkBox = new CheckBox
                 {
                     Location = new Point(13, y - t),
-                    Size = new Size(767, 21),
+                    Size = new Size(567, 21),
                     Name = "F" + i,
                     Text = Filename.Name,
                     Checked=true
@@ -67,6 +70,7 @@ namespace WinFormsApp1
             DataTable dataTable=new DataTable();
             dataTable.Columns.Add("Name");
             dataTable.Columns.Add("Name2");
+            dataTable.Columns.Add("Name3");
             foreach (Control control in this.panel1.Controls)
             {
                 if (control is CheckBox)
@@ -77,6 +81,7 @@ namespace WinFormsApp1
                         DataRow dr = dataTable.NewRow();
                         dr["Name"] = comboBox.Text;
                         dr["Name2"] = comboBox.Text.Substring(0,comboBox.Text.LastIndexOf("."));
+                        dr["Name3"] = comboBox.Text.Substring(comboBox.Text.LastIndexOf("."));
                         dataTable.Rows.Add(dr);
                     }
                 }
@@ -102,8 +107,9 @@ namespace WinFormsApp1
                         sheetcell[i] = (XSSFCell)sheetrow.CreateCell(i);
                         sheet.SetColumnWidth(i, 18 * 286);
                     }
-                    sheetcell[0].SetCellValue("文件名称");
+                    sheetcell[0].SetCellValue("文件名称含扩展名");
                     sheetcell[1].SetCellValue("文件名称无扩展名");
+                    sheetcell[2].SetCellValue("文件名称扩展名");
                     for (int i = 0; i < dataTable.Rows.Count; i++)
                     {
                         sheetrow = (XSSFRow)sheet.GetRow(i + 1);

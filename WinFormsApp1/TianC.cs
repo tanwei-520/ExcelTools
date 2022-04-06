@@ -235,7 +235,7 @@ namespace WinFormsApp1
         {
             if (Tiao1.Checked == false || Tiao2.Checked == false || Tiao3.Checked == false || Tiao4.Checked == false)
             {
-                MessageBox.Show("对比准备未完成，请检查设置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("填充准备未完成，请检查设置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pictureBox5.Visible = false;
                 return;
             }

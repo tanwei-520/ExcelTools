@@ -11,7 +11,7 @@
     <RootNamespace>WinFormsApp1</RootNamespace>
     <SignAssembly>false</SignAssembly>
     <NeutralLanguage>zh-CN</NeutralLanguage>
-    <ApplicationIcon />
+    <ApplicationIcon>excel (1).ico</ApplicationIcon>
     <StartupObject />
   </PropertyGroup>
 

@@ -118,6 +118,11 @@ namespace WinFormsApp1
 
         private void pictureBox3_Click(object sender, EventArgs e)//增加文本框
         {
+            if (TB == null)
+            {
+                MessageBox.Show("Excel文件还未正确设置！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int t = panel1.VerticalScroll.Value;
             Label Biao = new Label();
             Biao.Text = i + ".";
@@ -219,10 +224,19 @@ namespace WinFormsApp1
             GD = null;
             LJ = null;
             checkBox1.Checked = false;
+            checkBox3.Checked = false;
+            checkBox2.Checked = false;
+            NumC.Value = 1;
+            NumX.Value = 1;
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)//保存规则
         {
+            if (i <=1)
+            {
+                MessageBox.Show("规则为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             LJ = new string[i - 1];
             GD = new string[i - 1];
             int t = 0, y = 0;
@@ -237,6 +251,15 @@ namespace WinFormsApp1
                 if(control is TextBox)
                 {
                     if (control.Name.IndexOf("T") >= 0)
+                    {
+                        TextBox textBox = (TextBox)control;
+                        GD[t] = textBox.Text;
+                        t++;
+                    }
+                }
+                if (control is NumericUpDown)
+                {
+                    if (control.Name.IndexOf("XH") >= 0)
                     {
                         TextBox textBox = (TextBox)control;
                         GD[t] = textBox.Text;
@@ -277,7 +300,7 @@ namespace WinFormsApp1
                 DataRow dc = a.Rows[i];
                 for (int t = 0; t < GD.Length; t++)
                 {
-                    if (Array.IndexOf(TB, GD[t]) > 0)
+                    if (Array.IndexOf(TB, GD[t]) >= 0)
                     {
                         str += a.Rows[i][Array.IndexOf(TB, GD[t])];
                         str += LJ[t];
@@ -295,7 +318,14 @@ namespace WinFormsApp1
                     dataTable1.Rows.Add(dd.ItemArray);
                     dr = dataTable1.Select("Name1245= '" + str + "'");
                     if (dr.Length >1)
-                        str += "_" + (dr.Length).ToString();
+                        str +=(dr.Length).ToString();
+                }
+                if (checkBox3.Checked == true)
+                {
+                    string s = "";
+                    s += (NumX.Value+i).ToString();
+                    s = s.PadLeft(((int)NumC.Value), '0');
+                    str += s;
                 }
                 dc["Name1245"] = str;
                 dataTable.Rows.Add(dc.ItemArray);
@@ -313,7 +343,6 @@ namespace WinFormsApp1
                 if (a1 == null)
                 {
                     MessageBox.Show("结果集为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    pictureBox5.Visible = false;
                     return;
                 }
                 if (a1.Rows.Count > 0)
@@ -385,6 +414,22 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("导出错误！请联系管理员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+     private void XhYl()
+        {
+            string s = NumX.Value.ToString();
+             s = s.PadLeft(((int)NumC.Value), '0');
+            NumY.Text = s;
+        }
+
+        private void NumC_ValueChanged(object sender, EventArgs e)
+        {
+            XhYl();
+        }
+
+        private void NumX_ValueChanged(object sender, EventArgs e)
+        {
+            XhYl();
         }
     }
 }

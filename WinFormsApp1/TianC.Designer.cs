@@ -150,7 +150,7 @@ namespace WinFormsApp1
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 17);
             this.label11.TabIndex = 64;
-            this.label11.Text = "对比准备：";
+            this.label11.Text = "填充准备：";
             // 
             // Tiao4
             // 

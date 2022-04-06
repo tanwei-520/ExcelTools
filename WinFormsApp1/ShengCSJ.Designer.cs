@@ -61,6 +61,13 @@ namespace WinFormsApp1
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.NumC = new System.Windows.Forms.NumericUpDown();
+            this.NumX = new System.Windows.Forms.NumericUpDown();
+            this.NumY = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,6 +81,8 @@ namespace WinFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumX)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -151,7 +160,7 @@ namespace WinFormsApp1
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(40, 2);
+            this.textBox4.Location = new System.Drawing.Point(40, 3);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(139, 23);
             this.textBox4.TabIndex = 3;
@@ -265,9 +274,9 @@ namespace WinFormsApp1
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(151, 47);
+            this.pictureBox5.Location = new System.Drawing.Point(151, 45);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox5.Size = new System.Drawing.Size(31, 29);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
@@ -281,6 +290,7 @@ namespace WinFormsApp1
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox3.Size = new System.Drawing.Size(248, 271);
             this.textBox3.TabIndex = 76;
             this.textBox3.Text = resources.GetString("textBox3.Text");
@@ -298,7 +308,7 @@ namespace WinFormsApp1
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(1188, 118);
+            this.pictureBox6.Location = new System.Drawing.Point(1199, 117);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(32, 14);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -309,9 +319,9 @@ namespace WinFormsApp1
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.ImageLocation = "";
-            this.pictureBox7.Location = new System.Drawing.Point(193, 46);
+            this.pictureBox7.Location = new System.Drawing.Point(194, 45);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox7.Size = new System.Drawing.Size(32, 29);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 78;
             this.pictureBox7.TabStop = false;
@@ -322,9 +332,9 @@ namespace WinFormsApp1
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.ImageLocation = "";
-            this.pictureBox8.Location = new System.Drawing.Point(232, 43);
+            this.pictureBox8.Location = new System.Drawing.Point(233, 45);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox8.Size = new System.Drawing.Size(37, 30);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 80;
             this.pictureBox8.TabStop = false;
@@ -344,7 +354,7 @@ namespace WinFormsApp1
             // 
             this.checkBox1.AutoCheck = false;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(446, 77);
+            this.checkBox1.Location = new System.Drawing.Point(478, 77);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(75, 21);
             this.checkBox1.TabIndex = 82;
@@ -354,9 +364,7 @@ namespace WinFormsApp1
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(545, 77);
+            this.checkBox2.Location = new System.Drawing.Point(568, 76);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(111, 21);
             this.checkBox2.TabIndex = 83;
@@ -367,7 +375,7 @@ namespace WinFormsApp1
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.ImageLocation = "";
-            this.pictureBox9.Location = new System.Drawing.Point(1092, 238);
+            this.pictureBox9.Location = new System.Drawing.Point(1271, 220);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(16, 19);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -379,7 +387,7 @@ namespace WinFormsApp1
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.ImageLocation = "";
-            this.pictureBox10.Location = new System.Drawing.Point(1232, 238);
+            this.pictureBox10.Location = new System.Drawing.Point(1199, 238);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(21, 19);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -390,18 +398,120 @@ namespace WinFormsApp1
             // pictureBox11
             // 
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(1211, 289);
+            this.pictureBox11.Location = new System.Drawing.Point(1223, 289);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(17, 18);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 86;
             this.pictureBox11.TabStop = false;
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(693, 76);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(75, 21);
+            this.checkBox3.TabIndex = 88;
+            this.checkBox3.Text = "文件序号";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // NumC
+            // 
+            this.NumC.Location = new System.Drawing.Point(835, 72);
+            this.NumC.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.NumC.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumC.Name = "NumC";
+            this.NumC.Size = new System.Drawing.Size(52, 23);
+            this.NumC.TabIndex = 89;
+            this.NumC.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumC.ValueChanged += new System.EventHandler(this.NumC_ValueChanged);
+            // 
+            // NumX
+            // 
+            this.NumX.Location = new System.Drawing.Point(956, 72);
+            this.NumX.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.NumX.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumX.Name = "NumX";
+            this.NumX.Size = new System.Drawing.Size(52, 23);
+            this.NumX.TabIndex = 90;
+            this.NumX.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumX.ValueChanged += new System.EventHandler(this.NumX_ValueChanged);
+            // 
+            // NumY
+            // 
+            this.NumY.Location = new System.Drawing.Point(1073, 72);
+            this.NumY.Name = "NumY";
+            this.NumY.ReadOnly = true;
+            this.NumY.Size = new System.Drawing.Size(119, 23);
+            this.NumY.TabIndex = 91;
+            this.NumY.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(782, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 16);
+            this.label8.TabIndex = 92;
+            this.label8.Text = "序号长度";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(906, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 16);
+            this.label10.TabIndex = 93;
+            this.label10.Text = "起始序号";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(1020, 77);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 16);
+            this.label11.TabIndex = 94;
+            this.label11.Text = "序号预览";
+            // 
             // ShengCSJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1334, 711);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.NumY);
+            this.Controls.Add(this.NumX);
+            this.Controls.Add(this.NumC);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox10);
@@ -449,6 +559,8 @@ namespace WinFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumX)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +598,12 @@ namespace WinFormsApp1
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.NumericUpDown NumC;
+        private System.Windows.Forms.NumericUpDown NumX;
+        private System.Windows.Forms.TextBox NumY;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

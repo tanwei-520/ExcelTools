@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,6 +17,19 @@ namespace WinFormsApp1
         public del1()
         {
             InitializeComponent();
+            this.ShowInTaskbar = true;
+            string startupPath = AppDomain.CurrentDomain.BaseDirectory;//获取当前程序启动路径
+            Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);//声明对象Config
+            string mySetting = config.AppSettings.Settings["path"].Value;//读取path值
+            string id = config.AppSettings.Settings["id"].Value;
+            if (id != "TW520" || startupPath != mySetting)
+            {
+                MessageBox.Show("注册码验证失败！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                config.AppSettings.Settings["path"].Value = startupPath;//修改path值
+                config.AppSettings.Settings["id"].Value = "";
+                config.Save(ConfigurationSaveMode.Modified);//保存配置
+                Environment.Exit(0);
+            }
         }
         private void 数据对比ToolStripMenuItem_Click(object sender, EventArgs e)
         {

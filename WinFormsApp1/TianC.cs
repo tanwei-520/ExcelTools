@@ -242,7 +242,7 @@ namespace WinFormsApp1
             else
             {
                 //int index1 = Array.IndexOf(Cplublic.A1,comboBox1.Text);
-                if (checkBox1.Checked == false)
+                if (checkBox1.Checked == false)//是否启用自动填充
                 {
                     int index2 = Array.IndexOf(Cplublic.B1, comboBox2.Text);
                     DataTable dataTable;
@@ -255,7 +255,9 @@ namespace WinFormsApp1
                             if (comboBox3.Text != "like")
                                 dr = a1.Select(comboBox1.Text + " " + comboBox3.Text + " '" + a2.Rows[i][index2].ToString() + "'");
                             else
-                                dr = a1.Select(comboBox1.Text + " " + comboBox3.Text + " '%" + a2.Rows[i][index2].ToString() + "%' ");
+                            {
+                                    dr = a1.Select(comboBox1.Text + " " + comboBox3.Text + " '%" + a2.Rows[i][index2].ToString() + "%' ");
+                            }
                             if (dr.Length>0)//查询结果是否为空
                             {
                                 for (int t = 0; t < dr.Length; t++)

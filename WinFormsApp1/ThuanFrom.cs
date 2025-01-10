@@ -17,7 +17,7 @@ namespace WinFormsApp1
         private static DataTable a1;
         private static DataTable a2;
         private static DataTable a3;
-        private static string []a1name;
+        private static string[] a1name;
         private static string[] a2name;
         public ThuanFrom()
         {
@@ -27,7 +27,7 @@ namespace WinFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             // string[] name = { };
-            Readexcecl(filename.Text,filenameonly.Text,"a1");
+            Readexcecl(filename.Text, filenameonly.Text, "a1");
         }
         private void Creal()
         {
@@ -37,7 +37,7 @@ namespace WinFormsApp1
             button2.Enabled = false;
             label4.Visible = false;
         }
-        private void Readexcecl(string filename,string filenameonly,string a)
+        private void Readexcecl(string filename, string filenameonly, string a)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace WinFormsApp1
                     {
                         MessageBox.Show("出现此报错，可能是因为列名为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    for (i = i + 1; i < sheet.LastRowNum+1; i++)
+                    for (i = i + 1; i < sheet.LastRowNum + 1; i++)
                     {
                         row = sheet.GetRow(i);//NPOI行
                         if (row != null)
@@ -135,8 +135,11 @@ namespace WinFormsApp1
                         comboBox1.Items.Clear();
                         for (int y = 0; y < name.Length; y++)
                             a1itm.Items.Add(name[y]);
-                        for (int y = 0; y < name.Length; y++)
-                            comboBox1.Items.Add(name[y]);
+                    for (int y = 0; y < name.Length; y++)
+                    {
+                        comboBox1.Items.Add(name[y]);
+                        comboBox3.Items.Add(name[y]);
+                    }
                         a1 = dataTable;
                         a1name = name;
                     }
@@ -196,10 +199,10 @@ namespace WinFormsApp1
 
         private void File_SizeChanged(object sender, EventArgs e)
         {
-            dataGridView1.Width = this.Width-40;
+            dataGridView1.Width = this.Width - 40;
             //dataGridView1.Height = this.Height - 369;
-/*            if(this.Width - 557>30&& this.Height - 249- dataGridView1.Height > 22)
-                panel1.Location = new System.Drawing.Point(this.Width - 557 - 30, this.Height - 263 - dataGridView1.Height - 44-46);*/
+            /*            if(this.Width - 557>30&& this.Height - 249- dataGridView1.Height > 22)
+                            panel1.Location = new System.Drawing.Point(this.Width - 557 - 30, this.Height - 263 - dataGridView1.Height - 44-46);*/
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
@@ -278,7 +281,7 @@ namespace WinFormsApp1
             dataGridView1.DataSource = dataTable;
             fujia.Text = "";
         }
-         
+
         private void pictureBox1_Click(object sender, EventArgs e)//导出
         {
             try
@@ -288,7 +291,7 @@ namespace WinFormsApp1
                     MessageBox.Show("结果集为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if ( a3.Rows.Count > 0)
+                if (a3.Rows.Count > 0)
                 {
                     XSSFWorkbook workbook = new XSSFWorkbook();
                     workbook.CreateSheet("sheet1");
@@ -326,7 +329,7 @@ namespace WinFormsApp1
                         FileName = a2.TableName + "处理后.xlsx",
                         //设置默认文件类型显示顺序 
                         FilterIndex = 1,
-                      //  InitialDirectory = @"C:\Users\Administrator\Desktop",//是否设置默认打开路径
+                        //  InitialDirectory = @"C:\Users\Administrator\Desktop",//是否设置默认打开路径
                         //保存对话框是否记忆上次打开的目录 
                         RestoreDirectory = true
                     };
@@ -349,6 +352,7 @@ namespace WinFormsApp1
                         a1itm.Text = biiteml.Text = "";
                         a1itm.Items.Clear();
                         biiteml.Items.Clear();
+                        comboBox3.Items.Clear();
                         MessageBox.Show("导出成功！请重新选择文件！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     dialog.Dispose();
@@ -362,6 +366,48 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("结果集有误！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (a1itm.Text == "" || biiteml.Text == ""|| comboBox3.Text=="")
+            {
+                MessageBox.Show("请设置正确条件！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int index1 = Array.IndexOf(a1name, a1itm.Text);
+            int index4 = Array.IndexOf(a1name, comboBox3.Text);
+            int index2 = Array.IndexOf(a2name, biiteml.Text);
+            int index3 = Array.IndexOf(a2name, comboBox2.Text);
+            DataTable dataTable = new DataTable();
+            dataTable = a2.Clone();
+            DataRow[] dr;
+                for (int i = 0; i < a1.Rows.Count; i++)
+                {
+                    if (a1.Rows[i][index1].ToString() != "")
+                    {
+                        if (sel.Text == "like")
+                            dr = a2.Select(biiteml.Text + " " + sel.Text + " '%" + a1.Rows[i][index1].ToString() + "%' " + fujia.Text);
+                        else
+                            dr = a2.Select(biiteml.Text + " " + sel.Text + " '" + a1.Rows[i][index1].ToString() + "' " + fujia.Text);
+                        for (int t = 0; t < dr.Length; t++)
+                        {
+                            DataRow dc = dr[t];
+                            dc[biiteml.Text] = a1.Rows[i][index4].ToString();
+                            dataTable.Rows.Add(dc.ItemArray);
+                        }
+                    }
+                    else //如果所选条件为空则改行直接填充
+                    {
+                        DataRow dc = a1.Rows[i];
+                        dataTable.Rows.Add(dc.ItemArray);
+                    }
+                }
+            MessageBox.Show("处理完成！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            label3.Text = "当前共：" + (int.Parse(dataTable.Rows.Count.ToString())).ToString() + "条数据";
+            a3 = dataTable;
+            dataGridView1.DataSource = dataTable;
+            fujia.Text = "";
         }
     }
 }
